@@ -1,0 +1,41 @@
+GUIDE DES PHOTOS — Les Saveurs d'Orient By Jihane
+=====================================================
+
+Le site fonctionne déjà parfaitement sans vos photos : en leur absence,
+de jolis placeholders dorés (motif zellige + libellé) s'affichent
+automatiquement. Dès que vous déposez une image portant EXACTEMENT
+le nom ci-dessous dans ce dossier "images", elle remplace le
+placeholder correspondant, sans rien modifier au code.
+
+Format recommandé : JPG, paysage sauf mention contraire, bonne
+définition (voir tailles conseillées), poids optimisé pour le web
+(idéalement < 400 Ko par image, via TinyPNG ou Squoosh).
+
+FICHIERS ATTENDUS
+------------------
+hero-buffet.jpg            → Photo plein écran du hero (1920x1080 mini) ✔ ajoutée
+                              Un magnifique buffet marocain haut de gamme.
+portrait-jihane.jpg        → Portrait de Jihane, format vertical (1000x1250)
+og-cover.jpg                → Image de partage réseaux sociaux (1200x630) — remplacée par logo.jpeg en attendant
+logo.jpeg                   → Logo de la marque ✔ ajoutée (header, footer, favicon)
+favicon.png                 → Icône du site, carrée (512x512) ✔ générée automatiquement à partir du logo
+apple-touch-icon.png        → Icône iOS (180x180) ✔ générée automatiquement à partir du logo
+
+Galerie (format carré ou portrait conseillé, 800x800 mini) :
+gallery-buffet.jpg          → Buffets marocains ✔ ajoutée
+gallery-mariage.jpg         → Mariages ✔ ajoutée
+gallery-reception.jpg       → Réceptions ✔ ajoutée
+gallery-dressage.jpg        → Dressages élégants ✔ ajoutée
+gallery-mignardises.jpg     → Mignardises sucrées-salées ✔ ajoutée (remplace l'ancien slot "Gâteaux orientaux" :
+                              aucune photo de gâteaux n'a encore été fournie, la légende a été adaptée à la photo
+                              reçue. Envoyez une vraie photo de gâteaux orientaux si vous voulez restaurer ce thème.)
+gallery-verrines.jpg        → Verrines ✔ ajoutée
+gallery-cocktails.jpg       → Cocktails ✔ ajoutée
+gallery-plateaux.jpg        → Plateaux salés ✔ ajoutée
+gallery-tables.jpg          → Tables décorées ✔ ajoutée
+
+CONSEIL
+-------
+Privilégiez vos propres photos professionnelles (buffets réels,
+prestations, portraits) : c'est ce qui renforcera le plus la
+crédibilité et le caractère haut de gamme du site.
