@@ -1,30 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const hasHover = window.matchMedia('(hover: hover)').matches;
-
   /* ---------- Preloader ---------- */
   window.addEventListener('load', () => {
     document.body.classList.remove('is-loading');
   });
   setTimeout(() => document.body.classList.remove('is-loading'), 1200);
 
-  /* ---------- Header scroll state + scroll progress + hero parallax ---------- */
+  /* ---------- Header scroll state + scroll progress ---------- */
   const header = document.getElementById('site-header');
   const backToTop = document.getElementById('back-to-top');
   const scrollProgress = document.getElementById('scroll-progress');
-  const heroSection = document.querySelector('.hero');
-  const heroBgWrap = document.getElementById('hero-bg-wrap');
   const onScroll = () => {
     header.classList.toggle('is-scrolled', window.scrollY > 40);
     backToTop.classList.toggle('is-visible', window.scrollY > 600);
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
     scrollProgress.style.width = progress + '%';
-
-    if (heroSection && heroBgWrap && !prefersReducedMotion && window.scrollY < heroSection.offsetHeight) {
-      heroBgWrap.style.transform = 'translateY(' + (window.scrollY * 0.25) + 'px)';
-    }
   };
   window.addEventListener('scroll', onScroll);
   onScroll();
@@ -200,32 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ---------- Hero cursor glow ---------- */
+  const heroEl = document.querySelector('.hero');
   const heroGlow = document.querySelector('.hero__glow');
-  if (heroSection && heroGlow && hasHover) {
-    heroSection.addEventListener('mousemove', (e) => {
-      const rect = heroSection.getBoundingClientRect();
+  if (heroEl && heroGlow && window.matchMedia('(hover: hover)').matches) {
+    heroEl.addEventListener('mousemove', (e) => {
+      const rect = heroEl.getBoundingClientRect();
       heroGlow.style.setProperty('--x', (e.clientX - rect.left) + 'px');
       heroGlow.style.setProperty('--y', (e.clientY - rect.top) + 'px');
     });
-  }
-
-  /* ---------- Card 3D tilt ---------- */
-  if (hasHover && !prefersReducedMotion) {
-    const tiltCards = document.querySelectorAll('.formation-card, .feature-card');
-    const maxTilt = 6;
-    tiltCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const px = (e.clientX - rect.left) / rect.width - 0.5;
-        const py = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform =
-          'perspective(800px) rotateX(' + (-py * maxTilt).toFixed(2) + 'deg) ' +
-          'rotateY(' + (px * maxTilt).toFixed(2) + 'deg) translateY(-6px)';
-      });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-    });
-  } else {
-    document.documentElement.classList.add('no-tilt');
   }
 
   /* ---------- Back to top ---------- */
